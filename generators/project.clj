@@ -1,8 +1,6 @@
-(defproject lein-generate "0.1.0-SNAPSHOT"
+(defproject lein-generate/generators "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :eval-in-leiningen true
-  :profiles
-  {:dev {:generators [[lein-generate/generators "0.1.0-SNAPSHOT"]]}})
+  :eval-in-leiningen true)
