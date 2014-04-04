@@ -1,6 +1,7 @@
 (ns leiningen.generate
   (:require [leiningen.core.project :as project]
             [leiningen.core.main :refer [abort parse-options option-arg]]
+            [leiningen.help :as help]
             [bultitude.core :as bultitude]))
 
 (defn list-generators []
@@ -26,10 +27,24 @@
   (apply (resolve-generator template) args))
 
 (defn generate
-  "Generate files from a template."
+  "Generate scaffolding in an existing project.
+
+A list of generators can be found with:
+
+    lein generate :list
+
+Generators can be run with:
+
+    lein generate $GENERATOR_NAME
+
+Often generators will require arguments:
+
+    lein generate $GENERATOR_NAME $ARG1 $ARG2"
+  {:help-arglists '[[project template & args]]}
   [project & args]
   (let [[options args] (parse-options args)]
     (project/load-plugins project :generators)
     (cond
-     (:list options) (print-generators (list-generators))
-     :else           (run-generator args))))
+     (:list options)   (print-generators (list-generators))
+     (:--help options) (help/help "generate")
+     :else             (run-generator args))))
