@@ -43,7 +43,6 @@ Often generators will require arguments:
   {:help-arglists '[[project template & args]]}
   [project & args]
   (let [[options args] (parse-options args)]
-    (project/load-plugins project :generators)
     (cond
      (:list options)   (print-generators (list-generators))
      (:--help options) (help/help "generate")
