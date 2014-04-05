@@ -27,23 +27,18 @@
   (apply (resolve-generator template) args))
 
 (defn generate
-  "Generate scaffolding in an existing project.
+  "Generate files from templates in the current project.
 
-A list of generators can be found with:
+Generators can be run as subtasks:
 
-    lein generate :list
+    lein generate $SUBTASK
 
-Generators can be run with:
+Often generators will require additional arguments:
 
-    lein generate $GENERATOR_NAME
-
-Often generators will require arguments:
-
-    lein generate $GENERATOR_NAME $ARG1 $ARG2"
-  {:help-arglists '[[project template & args]]}
+    lein generate $SUBTASK $ARG_1 $ARG_2 ... $ARG_N"
+  {:help-arglists '[[project generator & args]]}
   [project & args]
   (let [[options args] (parse-options args)]
     (cond
-     (:list options)   (print-generators (list-generators))
      (:--help options) (help/help "generate")
      :else             (run-generator args))))
