@@ -1,4 +1,4 @@
-(ns lein-generate.plugin
+(ns lein-gen.plugin
   (:require [leiningen.generate :as g]
             [leiningen.core.project :as project]))
 

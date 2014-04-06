@@ -1,4 +1,4 @@
-# lein-generate
+# lein-gen
 
 A [Leiningen][1] plugin for generating file templates within an existing
 project.
@@ -7,10 +7,10 @@ project.
 
 ## Usage
 
-Add `lein-generate` as a plugin dependency to your project or profiles.
+Add `lein-gen` as a plugin dependency to your project or profiles.
 
 ```clojure
-:plugins [[lein-generate "0.1.0-SNAPSHOT"]]
+:plugins [[lein-gen "0.1.0-SNAPSHOT"]]
 ```
 
 Then add dependencies for the generators you want to use. This plugin
@@ -18,7 +18,7 @@ comes with a simple generator that provides a simple namespace
 template.
 
 ```clojure
-:generators [[lein-generator/generators "0.1.0-SNAPSHOT"]]
+:generators [[lein-gen/generators "0.1.0-SNAPSHOT"]]
 ```
 
 This generator can be used to create a new source file and template:
