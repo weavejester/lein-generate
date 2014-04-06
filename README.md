@@ -24,14 +24,22 @@ template.
 This generator can be used to create a new source file and template:
 
 ```bash
-$ lein generate namespace bar.core
+lein generate namespace bar.core
 ```
 
 This creates two new files: `src/bar/core.clj` and
 `test/bar/core_test.clj`.
 
 Generators are very similar to Leiningen project templates in both
-function and the way they are developed.
+function and the way they are developed. To create your own library of
+generators, start with:
+
+```bash
+lein new generators foo
+```
+
+Note the plural of "generators". Unlike templates, there can be many
+generators in a library.
 
 ## License
 
