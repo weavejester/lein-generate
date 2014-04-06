@@ -34,6 +34,8 @@
             path (io/file (render-text path data))
             options (apply hash-map options)]
         (.mkdirs (.getParentFile path))
+        (when (.exists path)
+          (main/abort (format "File '%s' already exists." path)))
         (io/copy content (io/file path))
         (when (:executable options)
           (.setExecutable path true))))))
