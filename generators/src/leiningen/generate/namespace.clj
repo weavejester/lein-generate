@@ -7,8 +7,11 @@
 (def render (renderer "namespace"))
 
 (defn namespace
-  "Generate a new namespace."
+  "Generate a new namespace and test file."
   [name]
   (let [data {:name name, :sanitized (name-to-path name)}]
     (main/info (render-text "Generating src/{{sanitized}}.clj" data))
-    (->files data ["src/{{sanitized}}.clj" (render "source.clj" data)])))
+    (->files data ["src/{{sanitized}}.clj" (render "source.clj" data)])
+
+    (main/info (render-text "Generating test/{{sanitized}}_test.clj" data))
+    (->files data ["test/{{sanitized}}_test.clj" (render "test.clj" data)])))
