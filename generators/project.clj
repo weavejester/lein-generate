@@ -1,6 +1,6 @@
 (defproject lein-generate/generators "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "A basic set of generators for lein-generate"
+  :url "https://github.com/weavejester/lein-generate"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :eval-in-leiningen true
