@@ -1,6 +1,4 @@
 /target
-/generators/target
-/template/target
 /classes
 /checkouts
 pom.xml
