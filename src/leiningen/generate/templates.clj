@@ -4,7 +4,7 @@
   (:require [leiningen.new.templates :refer [sanitize render-text slurp-resource]]
             [clojure.java.io :as io]
             [clojure.string :as string]
-            [leiningen.core.main :as main]))
+            [leiningen.core.main :as main :refer [*cwd*]]))
 
 (defn renderer
   "Create a renderer function that looks for mustache templates in the
@@ -29,13 +29,13 @@
   [data & paths]
   (doseq [path paths]
     (if (string? path)
-      (.mkdirs (io/file (render-text path data)))
+      (.mkdirs (io/file *cwd* (render-text path data)))
       (let [[path content & options] path
-            path (io/file (render-text path data))
+            path (io/file *cwd* (render-text path data))
             options (apply hash-map options)]
         (.mkdirs (.getParentFile path))
         (when (.exists path)
           (main/abort (format "File '%s' already exists." path)))
-        (io/copy content (io/file path))
+        (io/copy content path)
         (when (:executable options)
           (.setExecutable path true))))))
