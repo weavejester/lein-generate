@@ -14,21 +14,34 @@ Add `lein-gen` as a plugin dependency to your project or profiles.
 ```
 
 Then add dependencies for the generators you want to use. This plugin
-comes with a simple generator library that provides a simple namespace
-template.
+comes with an optional library of simple generators:
 
 ```clojure
 :generators [[lein-gen/generators "0.1.0-SNAPSHOT"]]
 ```
 
-This generator can be used to create a new source file and template:
+Included in this library is a namespace generator, which creates a new
+source and test file for a given namespace:
 
 ```bash
 lein generate namespace bar.core
 ```
 
-This creates two new files: `src/bar/core.clj` and
+The above example will create two new files: `src/bar/core.clj` and
 `test/bar/core_test.clj`.
+
+To find out the generators you have available, use:
+
+```bash
+lein help generate
+```
+
+For help on a specific generator, such as the namespace generator,
+use:
+
+```bash
+lein help generate namespace
+```
 
 Generators are very similar to Leiningen project templates in both
 function and the way they are developed. To create your own library of
