@@ -14,7 +14,7 @@ Add `lein-gen` as a plugin dependency to your project or profiles.
 ```
 
 Then add dependencies for the generators you want to use. This plugin
-comes with a simple generator that provides a simple namespace
+comes with a simple generator library that provides a simple namespace
 template.
 
 ```clojure
