@@ -1,4 +1,4 @@
-# lein-gen(erate)
+# lein-generate
 
 A [Leiningen][1] plugin for generating file templates within an existing
 project.
