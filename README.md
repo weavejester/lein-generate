@@ -10,14 +10,14 @@ project.
 Add `lein-gen` as a plugin dependency to your project or profiles.
 
 ```clojure
-:plugins [[lein-gen "0.1.0-SNAPSHOT"]]
+:plugins [[lein-gen "0.1.0"]]
 ```
 
 Then add dependencies for the generators you want to use. This plugin
 comes with an optional library of simple generators:
 
 ```clojure
-:generators [[lein-gen/generators "0.1.0-SNAPSHOT"]]
+:generators [[lein-gen/generators "0.1.0"]]
 ```
 
 Included in this library is a namespace generator, which creates a new
