@@ -11,11 +11,6 @@
         (the-ns)
         (ns-resolve (symbol (last (.split (str n) "\\.")))))))
 
-(defn print-generators [generators]
-  (println "Subtasks available:")
-  (doseq [g generators]
-    (println (.sym g) "\t" (-> g meta :doc))))
-
 (defn resolve-generator [name]
   (let [sym (symbol (str "leiningen.generate." name))]
     (if (try (require sym) true
