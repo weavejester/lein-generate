@@ -21,7 +21,7 @@
     (if (try (require sym) true
              (catch java.io.FileNotFoundException _ false))
       (resolve (symbol (str sym "/" name)))
-      (abort "Could not find template" name "on the classpath."))))
+      (abort "Could not find generator" name "on the classpath."))))
 
 (defn run-generator [[template & args]]
   (apply (resolve-generator template) args))
@@ -29,7 +29,7 @@
 (defn generate
   "Generate files from templates in the current project.
 
-Generators can be run as subtasks:
+Generators are run as subtasks:
 
     lein generate $SUBTASK
 
@@ -39,6 +39,6 @@ Often generators will require additional arguments:
   {:help-arglists '[[project generator & args]]}
   [project & args]
   (let [[options args] (parse-options args)]
-    (cond
-     (:--help options) (help/help "generate")
-     :else             (run-generator args))))
+    (if (empty? args)
+      (help/help project "generate")
+      (run-generator args))))
