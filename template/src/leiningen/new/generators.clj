@@ -11,7 +11,7 @@
               :sanitized (sanitize name)
               :placeholder "{{sanitized}}"
               :year (year)}]
-    (main/info "Generating fresh 'lein new' generators project.")
+    (main/info "Creating a new generators project.")
     (->files data
              ["README.md" (render "README.md" data)]
              ["project.clj" (render "project.clj" data)]
