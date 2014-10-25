@@ -5,13 +5,13 @@
 (def render (renderer "generators"))
 
 (defn generators
-  "FIXME: write documentation"
+  "Create a new generators template for lein-generate."
   [name]
-  (let [data {:name name
-              :sanitized (sanitize name)
+  (let [data {:name        name
+              :sanitized   (sanitize name)
               :placeholder "{{sanitized}}"
-              :year (year)}]
-    (main/info "Creating a new generators project.")
+              :year        (year)}]
+    (main/info "Creating a new generators project called" name)
     (->files data
              ["README.md" (render "README.md" data)]
              ["project.clj" (render "project.clj" data)]
