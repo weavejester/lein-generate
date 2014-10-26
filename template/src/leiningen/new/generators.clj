@@ -7,15 +7,18 @@
 (defn generators
   "Create a new generators template for lein-generate."
   [name]
-  (let [data {:name        name
-              :sanitized   (sanitize name)
-              :placeholder "{{sanitized}}"
-              :year        (year)}]
+  (let [data {:name          name
+              :name-var      "{{name}}"
+              :sanitized     (sanitize name)
+              :sanitized-var "{{sanitized}}"
+              :year          (year)}]
     (main/info "Creating a new generators project called" name)
     (->files data
-             ["README.md" (render "README.md" data)]
+             [".gitignore"  (render "gitignore" data)]
+             ["LICENSE"     (render "LICENSE" data)]
+             ["README.md"   (render "README.md" data)]
              ["project.clj" (render "project.clj" data)]
-             [".gitignore" (render "gitignore" data)]
-             ["src/leiningen/generate/{{sanitized}}.clj" (render "generate.clj" data)]
-             ["resources/leiningen/generate/{{sanitized}}/foo.clj" (render "foo.clj")]
-             ["LICENSE" (render "LICENSE" data)])))
+             ["src/leiningen/generate/{{sanitized}}.clj"
+              (render "generate.clj" data)]
+             ["resources/leiningen/generate/{{sanitized}}/source.clj"
+              (render "source.clj" data)])))

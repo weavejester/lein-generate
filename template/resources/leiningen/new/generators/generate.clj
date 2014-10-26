@@ -9,5 +9,5 @@
   "FIXME: write documentation"
   [project name]
   (let [data {:name name, :sanitized (name-to-path name)}]
-    (main/info (render-text "Generating src/{{placeholder}}/foo.clj" data))
-    (->files data ["src/{{placeholder}}/foo.clj" (render "foo.clj" data)])))
+    (main/info (render-text "Creating src/{{sanitized-var}}.clj" data))
+    (->files data ["src/{{sanitized-var}}.clj" (render "source.clj" data)])))
