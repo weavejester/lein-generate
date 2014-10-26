@@ -18,8 +18,8 @@
       (resolve (symbol (str sym "/" name)))
       (abort "Could not find generator" name "on the classpath."))))
 
-(defn run-generator [[template & args]]
-  (apply (resolve-generator template) args))
+(defn run-generator [project [template & args]]
+  (apply (resolve-generator template) project args))
 
 (defn generate
   "Generate files from templates in the current project.
@@ -36,4 +36,4 @@ Often generators will require additional arguments:
   (let [[options args] (parse-options args)]
     (if (empty? args)
       (help/help project "generate")
-      (run-generator args))))
+      (run-generator project args))))

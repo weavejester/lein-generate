@@ -7,7 +7,7 @@
 
 (defn {{name}}
   "FIXME: write documentation"
-  [name]
+  [project name]
   (let [data {:name name, :sanitized (name-to-path name)}]
     (main/info (render-text "Generating src/{{placeholder}}/foo.clj" data))
     (->files data ["src/{{placeholder}}/foo.clj" (render "foo.clj" data)])))

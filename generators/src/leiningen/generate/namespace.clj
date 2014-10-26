@@ -8,7 +8,7 @@
 
 (defn namespace
   "Generate a new namespace and test file."
-  [name]
+  [project name]
   (let [data {:name name, :sanitized (name-to-path name)}]
     (main/info (render-text "Generating src/{{sanitized}}.clj" data))
     (->files data ["src/{{sanitized}}.clj" (render "source.clj" data)])
