@@ -1,4 +1,4 @@
-(defproject lein-gen "0.1.1"
+(defproject lein-gen "0.2.0"
   :description "Lein plugin for generating files"
   :url "https://github.com/weavejester/lein-gen"
   :scm {:dir ".."}
