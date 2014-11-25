@@ -39,3 +39,11 @@
         (io/copy content path)
         (when (:executable options)
           (.setExecutable path true))))))
+
+(defn create-file
+  "Create a new file using a render function, a source template and a map of
+  data. The file will be placed in a destination path, which may include
+  template variables."
+  [render src dest data]
+  (main/info "Creating" (render-text dest data))
+  (->files data [dest (render src data)]))
