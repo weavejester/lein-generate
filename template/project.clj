@@ -1,4 +1,4 @@
-(defproject generators/lein-template "0.2.0"
+(defproject generators/lein-template "0.2.1"
   :description "Basic generators for the lein-gen plugin"
   :url "https://github.com/weavejester/lein-gen"
   :scm {:dir ".."}
